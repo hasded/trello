@@ -5,7 +5,10 @@
 
 package trello
 
-import "fmt"
+import (
+	"fmt"
+	"time"
+)
 
 // Checklist represents Trello card's checklists.
 // A card can have one zero or more checklists.
@@ -18,6 +21,8 @@ type Checklist struct {
 	IDCard     string      `json:"idCard,omitempty"`
 	Card       *Card       `json:"-"`
 	Pos        float64     `json:"pos,omitempty"`
+	Due        time.Time   `json:"due,omitempty"`
+	IDMember   string      `json:"idMember,omitempty"`
 	CheckItems []CheckItem `json:"checkItems,omitempty"`
 }
 
